@@ -1,8 +1,12 @@
-/* --- Base Styles / Mobile First --- */
+*{margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+
 
 .container {
     height: 97vh; /* Changed from height to min-height so content doesn't get cut off */
-     background-image: url(../unsplash3.jpg.jpg); 
+     background-image: url(unspash.jpg.jpg); 
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -15,7 +19,7 @@
 
 .header {
     display: flex;
-    flex-direction: ; /* Stack logo, links, and buttons on mobile */
+    /* flex-direction: ; Stack logo, links, and buttons on mobile */
     gap: 20px;
     align-items: center;
     width: 100%;
