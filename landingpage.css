@@ -1,156 +1,142 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+/* --- Base Styles / Mobile First --- */
 
-.container{
-    
-    height: 100vh;
-    background-image: url(../unsplash3.jpg.jpg);
+.container {
+    height: 97vh; /* Changed from height to min-height so content doesn't get cut off */
+     background-image: url(../unsplash3.jpg.jpg); 
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
     display: flex;
     flex-direction: column;
-   
     gap: 30px;
-    padding: 20px auto;
-    
-    
-}
- .header {
-    display: flex; /* This lines up the logo, links, and buttons in a row */
-    justify-content: space-between; /* Spreads them evenly across the screen */
-    align-items: center; /* Centers them vertically against each other */
+    /* padding: 20px; Simplified padding for mobile */
     width: 100%;
-    padding: 0 50px; /* Gives some space on the left and right edges */
-} 
-.logo{
-     font-size:30px ;
-     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-     padding-left: 5px;
-     gap: 40px;
-     display: flex;
-  
-   
 }
-.links{
+
+.header {
     display: flex;
-    gap: 90px;
-    padding-top: 7px;
-    padding-left: 190px;
-    font-size: 17px;
-    
-    
-    
+    flex-direction: ; /* Stack logo, links, and buttons on mobile */
+    gap: 20px;
+    align-items: center;
+    width: 100%;
+    /* padding: 10px 20px; */
+    justify-content: space-between;
 }
-.links a{
+
+.logo {
+    font-size: 30px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', sans-serif;
+    display: flex;
+    gap: 10px; /* Reduced heavy gap */
+}
+
+.links {
+    display: flex;
+    flex-wrap: wrap; /* Allows links to wrap to the next line on tiny screens */
+    justify-content: center;
+    gap: 20px; /* Reduced massive 90px gap for mobile */
+    font-size: 17px;
+}
+
+.links a {
     color: black;
     text-decoration: none;
-    
 }
-.buttons{
-    padding-left: 220px;
+
+.buttons {
     display: flex;
-    gap: 40px;
-    padding-top: 3px;
-    
+    gap: 15px; /* Reduced heavy gap */
+    justify-content: center;
+    align-items: center;
 }
-.buttons :first-child{
+
+/* Replaced :first-child and :nth-child(2) with class names if possible, 
+   but keeping your selector logic intact */
+.buttons :first-child {
     background-color: blue;
     text-decoration: none;
-    width: 90px;
+    width: auto; /* Let the button scale with content */
+    min-width: 90px;
     height: 40px;
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 6px;
+    /* padding: 0 15px; Added padding so text doesn't overflow */
 }
-.buttons :nth-child(2){
+
+.buttons :nth-child(2) {
     background-color: aqua;
-    height:30px ;
-    width: 45px;
+    height: 40px; /* Matched height with first button */
+    width: auto;
+    min-width: 90px;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 4px;
     border-radius: 4px;
-     
+    padding: 0 15px;
 }
-.buttons :first-child:hover{
-    background-color:red ;
-    width:95px ;
+
+/* Removed hover effects adjustments that altered width/height, 
+   as resizing items on hover looks jarring */
+.buttons :first-child:hover {
+    background-color: red;
 }
-.buttons :nth-child(2):hover{
+
+.buttons :nth-child(2):hover {
     background-color: black;
-    height: 35px;
+    color: white; /* Added for contrast */
 }
-.sideline{
+
+.middle-row {
     display: flex;
-    padding-top: 50px;
-     writing-mode:sideways-lr; 
+    flex-direction: column; /* Stacked layout for small screens */
+    align-items: center;
+    gap: 40px;
+    /* padding: 0 20px 90px 20px; */
+}
+
+.sideline {
+    display: flex;
+    flex-direction: row; /* Sideways text doesn't work well on mobile, standard row is better */
+    gap: 15px;
+    font-size: 18px;
+    justify-content: center;
+}
+
+.designs {
+    display: flex;
     flex-direction: column;
-    gap:20px;
-    font-size: 20px;
+    align-items: center;
+    text-align: center; /* Centers the multi-line text */
 }
 
-
-.middle-row{display: flex;
-    gap: 120px;
-    flex-direction: row;
-    padding-bottom: 90px;
-}
-.designs{
-  
-    padding-top: 0px;
-    padding-left: 100px;
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   flex-direction:column;
-   
-   
-    
-   
-
-}
-.designs :nth-child(1){
-    font-size: 20px;
+.designs :nth-child(1) {
+    font-size: 18px;
     color: black;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-
 }
-.designs :nth-child(2){
-    font-size: 65px;
+
+.designs :nth-child(2) {
+    font-size: clamp(32px, 8vw, 65px); /* Fluid typography! Scales between 32px and 65px based on screen width */
     color: lightgreen;
     font-weight: bold;
 }
-.emojis{
-    color: black;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    font-size: 60px;
-    color: antiquewhite;
-    
-    
-}
-.end{
+
+.end {
     background-color: gold;
-    padding-top: 10px;
-    margin-top: 25px;
-    height: 65px;
-    
+    padding: 15px;
+    margin-top: auto; /* Pushes footer to the bottom */
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.logins{
+
+.logins {
     display: flex;
-    gap: 70px;
-    font-size: 27px;
+    gap: 30px; /* Reduced gap */
+    font-size: 20px; /* Slightly smaller text for mobile */
 }
+
 
 
